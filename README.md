@@ -38,13 +38,13 @@ Antes de executar a aplicação, você precisará ter instalado em sua máquina:
    ```bash
    git clone [https://github.com/seu-usuario/dave-tickets-pro.git](https://github.com/seu-usuario/dave-tickets-pro.git)
    cd dave-tickets-pro
-Instale as dependências necessárias:
+## Instale as dependências necessárias:
 
 Bash
 pip install psycopg2
 (Nota: Se tiver problemas na instalação do psycopg2, tente usar pip install psycopg2-binary)
 
-Configuração do Banco de Dados:
+## Configuração do Banco de Dados:
 Certifique-se de que a variável DB_CONFIG no código contém as credenciais corretas do seu banco de dados PostgreSQL, apontando para as tabelas equivalentes:
 
 vendas_ingressos
@@ -70,7 +70,7 @@ clientes: id_cliente, nome_cliente
 
 vendas_ingressos: id_venda, id_show, id_cliente, quantidade, valor_total
 
-✒️ Autores
+## ✒️ Autores
 Desenvolvedor: David Cavalcante
 
-LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidcavalcante)
+## LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidcavalcante)
