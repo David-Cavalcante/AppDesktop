@@ -2,7 +2,7 @@
 
 O **DaveTickets Pro** é uma aplicação desktop desenvolvida em Python para o gerenciamento de vendas de ingressos e shows de forma centralizada. O sistema conecta-se a um banco de dados PostgreSQL para recuperar dados em tempo real sobre os últimos shows, bandas contratadas, clientes e o faturamento das vendas.
 
-![Painel do DaveTickets Pro] <img width="948" height="485" alt="image" src="https://github.com/user-attachments/assets/477d037d-84e8-41b6-9a5b-ac55dbfbc8a9" />
+<img width="948" height="485" alt="image" src="https://github.com/user-attachments/assets/477d037d-84e8-41b6-9a5b-ac55dbfbc8a9" />
 
 ---
 
