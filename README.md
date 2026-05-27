@@ -36,23 +36,55 @@ Antes de executar a aplicação, você precisará ter instalado em sua máquina:
 
 1. **Clone o repositório:**
    ```bash
-   import tkinter as tk
+   git clone [https://github.com/seu-usuario/dave-tickets-pro.git](https://github.com/seu-usuario/dave-tickets-pro.git)
+   cd dave-tickets-pro
+Instale as dependências necessárias:
+
+Bash
+pip install psycopg2
+(Nota: Se tiver problemas na instalação do psycopg2, tente usar pip install psycopg2-binary)
+
+Configuração do Banco de Dados:
+Certifique-se de definir a variável DB_CONFIG no código com as credenciais corretas do seu banco de dados PostgreSQL.
+
+Execute a aplicação:
+
+Bash
+python main.py
+🛠️ Estrutura de Dados (Esquema SQL Utilizado)
+Para que a aplicação funcione corretamente, o banco de dados deve seguir a seguinte estrutura de relacionamentos para a query de consulta:
+
+bandas: id_banda, nome_banda
+
+shows: id_show, id_banda, local_show, cidade, data_show
+
+clientes: id_cliente, nome_cliente
+
+vendas_ingressos: id_venda, id_show, id_cliente, quantidade, valor_total
+
+💻 Código Fonte da Aplicação (main.py)
+Abaixo está o código completo estruturado em Python para execução do painel:
+
+Python
+import tkinter as tk
 from tkinter import ttk, messagebox
 import psycopg2
 
+# Configure aqui as credenciais do seu banco de dados
+DB_CONFIG = {
+    "host": "localhost",
+    "database": "seu_banco",
+    "user": "seu_usuario",
+    "password": "sua_senha"
+}
 
 def carregar_vendas():
-
     try:
-
         tabela.delete(*tabela.get_children())
-
         conexao = psycopg2.connect(**DB_CONFIG)
-
         conexao.autocommit = True
-
         cursor = conexao.cursor()
-
+        
         query = """
             SELECT
                 v.id_venda,
@@ -63,27 +95,17 @@ def carregar_vendas():
                 v.quantidade,
                 v.valor_total,
                 s.data_show
-
             FROM vendas_ingressos v
-
-            INNER JOIN shows s
-                ON v.id_show = s.id_show
-
-            INNER JOIN bandas b
-                ON s.id_banda = b.id_banda
-
-            INNER JOIN clientes c
-                ON v.id_cliente = c.id_cliente
-
+            INNER JOIN shows s ON v.id_show = s.id_show
+            INNER JOIN bandas b ON s.id_banda = b.id_banda
+            INNER JOIN clientes c ON v.id_cliente = c.id_cliente
             ORDER BY v.id_venda DESC;
         """
-
+        
         cursor.execute(query)
-
         vendas = cursor.fetchall()
-
+        
         for venda in vendas:
-
             tabela.insert(
                 "",
                 tk.END,
@@ -98,36 +120,24 @@ def carregar_vendas():
                     venda[7].strftime("%d/%m/%Y")
                 )
             )
-
+            
         cursor.close()
         conexao.close()
-
-        status_label.config(
-            text="● ONLINE",
-            fg="#00ff88"
-        )
-
+        status_label.config(text="● ONLINE", fg="#00ff88")
+        
     except Exception as erro:
-
         print(erro)
-
-        status_label.config(
-            text="● ERRO",
-            fg="#ff1744"
-        )
-
+        status_label.config(text="● ERRO", fg="#ff1744")
+        
     janela.after(3000, carregar_vendas)
 
 janela = tk.Tk()
-
 janela.title("DaveTickets Pro")
 janela.geometry("1450x780")
 janela.configure(bg="#0b1120")
 
-
 style = ttk.Style()
 style.theme_use("clam")
-
 
 style.configure(
     "Treeview",
@@ -138,12 +148,7 @@ style.configure(
     borderwidth=0,
     font=("Segoe UI", 10)
 )
-
-style.map(
-    "Treeview",
-    background=[("selected", "#7c3aed")]
-)
-
+style.map("Treeview", background=[("selected", "#7c3aed")])
 style.configure(
     "Treeview.Heading",
     background="#1f2937",
@@ -151,8 +156,6 @@ style.configure(
     relief="flat",
     font=("Segoe UI", 10, "bold")
 )
-
-
 style.configure(
     "Vertical.TScrollbar",
     background="#111827",
@@ -161,15 +164,8 @@ style.configure(
     arrowcolor="white"
 )
 
-
-sidebar = tk.Frame(
-    janela,
-    bg="#111827",
-    width=230
-)
-
+sidebar = tk.Frame(janela, bg="#111827", width=230)
 sidebar.pack(side=tk.LEFT, fill=tk.Y)
-
 
 logo = tk.Label(
     sidebar,
@@ -179,26 +175,10 @@ logo = tk.Label(
     justify="left",
     font=("Segoe UI", 24, "bold")
 )
+logo.pack(padx=25, pady=(30, 5), anchor="w")
 
-logo.pack(
-    padx=25,
-    pady=(30, 5),
-    anchor="w"
-)
-
-sublogo = tk.Label(
-    sidebar,
-    text="Painel Administrativo",
-    bg="#111827",
-    fg="#94a3b8",
-    font=("Segoe UI", 10)
-)
-
-sublogo.pack(
-    padx=27,
-    anchor="w"
-)
-
+sublogo = tk.Label(sidebar, text="Painel Administrativo", bg="#111827", fg="#94a3b8", font=("Segoe UI", 10))
+sublogo.pack(padx=27, anchor="w")
 
 btn_refresh = tk.Button(
     sidebar,
@@ -214,218 +194,48 @@ btn_refresh = tk.Button(
     cursor="hand2",
     font=("Segoe UI", 10, "bold")
 )
+btn_refresh.pack(padx=25, pady=35, fill=tk.X)
 
-btn_refresh.pack(
-    padx=25,
-    pady=35,
-    fill=tk.X
-)
+status_label = tk.Label(sidebar, text="● CONECTANDO...", bg="#111827", fg="#facc15", font=("Segoe UI", 10, "bold"))
+status_label.pack(padx=25, anchor="w")
 
+main = tk.Frame(janela, bg="#0b1120")
+main.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-status_label = tk.Label(
-    sidebar,
-    text="● CONECTANDO...",
-    bg="#111827",
-    fg="#facc15",
-    font=("Segoe UI", 10, "bold")
-)
-
-status_label.pack(
-    padx=25,
-    anchor="w"
-)
-
-
-main = tk.Frame(
-    janela,
-    bg="#0b1120"
-)
-
-main.pack(
-    side=tk.LEFT,
-    fill=tk.BOTH,
-    expand=True
-)
-
-
-topo = tk.Frame(
-    main,
-    bg="#0b1120",
-    height=70
-)
-
+topo = tk.Frame(main, bg="#0b1120", height=70)
 topo.pack(fill=tk.X)
 
-titulo = tk.Label(
-    topo,
-    text="Concert's Here",
-    bg="#0b1120",
-    fg="white",
-    font=("Segoe UI", 24, "bold")
-)
+titulo = tk.Label(topo, text="Concert's Here", bg="#0b1120", fg="white", font=("Segoe UI", 24, "bold"))
+titulo.pack(anchor="w", padx=25, pady=(10, 0))
 
-titulo.pack(
-    anchor="w",
-    padx=25,
-    pady=(10, 0)
-)
+subtitulo = tk.Label(topo, text="Controle completo de ingressos e shows", bg="#0b1120", fg="#94a3b8", font=("Segoe UI", 10))
+subtitulo.pack(anchor="w", padx=27)
 
-subtitulo = tk.Label(
-    topo,
-    text="Controle completo de ingressos e shows",
-    bg="#0b1120",
-    fg="#94a3b8",
-    font=("Segoe UI", 10)
-)
+card = tk.Frame(main, bg="#111827")
+card.pack(fill=tk.BOTH, expand=True, padx=20, y=15)
 
-subtitulo.pack(
-    anchor="w",
-    padx=27
-)
+card_title = tk.Label(card, text="Últimas Vendas", bg="#111827", fg="white", font=("Segoe UI", 13, "bold"))
+card_title.pack(anchor="w", padx=10, pady=10)
 
+frame_tabela = tk.Frame(card, bg="#111827")
+frame_tabela.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 10))
 
-card = tk.Frame(
-    main,
-    bg="#111827"
-)
+colunas = ("ID", "Banda", "Local", "Cidade", "Cliente", "Qtd", "Valor", "Data")
+tabela = ttk.Treeview(frame_tabela, columns=colunas, show="headings")
 
-card.pack(
-    fill=tk.BOTH,
-    expand=True,
-    padx=20,
-    pady=15
-)
-
-card_title = tk.Label(
-    card,
-    text="Últimas Vendas",
-    bg="#111827",
-    fg="white",
-    font=("Segoe UI", 13, "bold")
-)
-
-card_title.pack(
-    anchor="w",
-    padx=10,
-    pady=10
-)
-
-frame_tabela = tk.Frame(
-    card,
-    bg="#111827"
-)
-
-frame_tabela.pack(
-    fill=tk.BOTH,
-    expand=True,
-    padx=10,
-    pady=(0, 10)
-)
-
-
-colunas = (
-    "ID",
-    "Banda",
-    "Local",
-    "Cidade",
-    "Cliente",
-    "Qtd",
-    "Valor",
-    "Data"
-)
-
-tabela = ttk.Treeview(
-    frame_tabela,
-    columns=colunas,
-    show="headings"
-)
-
-larguras = {
-    "ID": 50,
-    "Banda": 170,
-    "Local": 190,
-    "Cidade": 130,
-    "Cliente": 170,
-    "Qtd": 60,
-    "Valor": 100,
-    "Data": 90
-}
-
+larguras = {"ID": 50, "Banda": 170, "Local": 190, "Cidade": 130, "Cliente": 170, "Qtd": 60, "Valor": 100, "Data": 90}
 for col in colunas:
-
     tabela.heading(col, text=col)
+    tabela.column(col, width=larguras[col], anchor=tk.CENTER, stretch=True)
 
-    tabela.column(
-        col,
-        width=larguras[col],
-        anchor=tk.CENTER,
-        stretch=True
-    )
-
-
-scroll_y = ttk.Scrollbar(
-    frame_tabela,
-    orient="vertical",
-    command=tabela.yview
-)
-
-tabela.configure(
-    yscrollcommand=scroll_y.set
-)
-
-scroll_y.pack(
-    side=tk.RIGHT,
-    fill=tk.Y
-)
-
-tabela.pack(
-    side=tk.LEFT,
-    fill=tk.BOTH,
-    expand=True
-)
-
+scroll_y = ttk.Scrollbar(frame_tabela, orient="vertical", command=tabela.yview)
+tabela.configure(yscrollcommand=scroll_y.set)
+scroll_y.pack(side=tk.RIGHT, fill=tk.Y)
+tabela.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
 janela.after(1000, carregar_vendas)
-
 janela.mainloop()
-   
-Instale as dependências necessárias:
-
-Bash
-pip install psycopg2
-(Nota: Se tiver problemas na instalação do psycopg2, tente usar pip install psycopg2-binary)
-
-Configuração do Banco de Dados:
-Certifique-se de que a variável DB_CONFIG no código contém as credenciais corretas do seu banco de dados PostgreSQL, apontando para as tabelas equivalentes:
-
-vendas_ingressos
-
-shows
-
-bandas
-
-clientes
-
-Execute a aplicação:
-
-Bash
-python nome_do_seu_arquivo.py
-🛠️ Estrutura de Dados (Esquema SQL Utilizado)
-Para que a aplicação funcione corretamente, o banco de dados deve seguir a seguinte estrutura de relacionamentos para a query de consulta:
-
-bandas: id_banda, nome_banda
-
-shows: id_show, id_banda, local_show, cidade, data_show
-
-clientes: id_cliente, nome_cliente
-
-vendas_ingressos: id_venda, id_show, id_cliente, quantidade, valor_total
-
 ✒️ Autores
 Desenvolvedor: David Cavalcante
 
-LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidcavalcante)
-
-
----
-
+LinkedIn: David Cavalcante
