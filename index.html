@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Background com glow sutil */
         body::before {
             content: '';
             position: fixed;
@@ -55,7 +54,6 @@
             gap: 40px;
         }
 
-        /* Coluna esquerda — conteúdo */
         .content {
             flex: 1.1;
             min-width: 280px;
@@ -125,7 +123,6 @@
             font-size: 0.95rem;
         }
 
-        /* Botões */
         .buttons {
             display: flex;
             flex-wrap: wrap;
@@ -173,7 +170,6 @@
             border-color: #818cf8;
         }
 
-        /* Coluna direita - imagem corrigida */
         .preview-container {
             flex: 1.2;
             min-width: 280px;
@@ -200,7 +196,6 @@
             box-shadow: 0 30px 50px -18px black;
         }
 
-        /* Aqui está a imagem real (tela do sistema) com proporção correta */
         .dashboard-img {
             display: block;
             width: 100%;
@@ -209,7 +204,6 @@
             background: #0b0e17;
         }
 
-        /* selo "ONLINE" personalizado e sem sobreposição indevida */
         .live-badge {
             position: absolute;
             top: 18px;
@@ -246,8 +240,7 @@
             100% { opacity: 1; transform: scale(1.2);}
         }
 
-        /* Tabela minimalista (estilo pré-visualização - mas a imagem já possui, garantimos fallback) */
-        /* Ajuste responsivo seguro */
+
         @media (max-width: 1100px) {
             .container {
                 flex-direction: column;
@@ -288,7 +281,6 @@
             }
         }
 
-        /* ajuste para a imagem interna não estourar e ficar nítida */
         .preview-container img {
             max-width: 100%;
             vertical-align: middle;
@@ -299,7 +291,7 @@
 
     <main class="hero">
         <div class="container">
-            <!-- Coluna esquerda: textos e recursos -->
+            
             <div class="content">
                 <h1>DaveTickets Pro</h1>
                 <p>Plataforma desktop desenvolvida em <strong style="color:#a5b4fc">Python</strong> para o gerenciamento inteligente de vendas de ingressos, shows e eventos em tempo real.</p>
@@ -336,15 +328,14 @@
                 </div>
             </div>
             
-            <!-- Coluna direita: imagem do sistema corrigida (sem texto ONLINE sobreposto de forma invasiva) -->
+       
             <div class="preview-container">
                 <div class="app-frame">
-                    <!-- Imagem de interface real do DaveTickets Pro - Layout da tabela e dashboard integrado -->
-                    <img class="dashboard-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2311182c'/%3E%3Cstop offset='100%25' stop-color='%23060a17'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='520' fill='url(%23bg)' rx='20'/%3E%3Crect x='20' y='20' width='760' height='46' fill='%231e293b' rx='12'/%3E%3Ccircle cx='44' cy='43' r='7' fill='%23ef4444'/%3E%3Ccircle cx='68' cy='43' r='7' fill='%23f59e0b'/%3E%3Ccircle cx='92' cy='43' r='7' fill='%2322c55e'/%3E%3Ctext x='130' y='49' fill='%2394a3b8' font-size='14' font-family='monospace' font-weight='bold'%3EDaveTickets Pro · Painel de Controle%3C/text%3E%3Crect x='20' y='85' width='180' height='32' fill='%234f46e5' rx='20'/%3E%3Ctext x='48' y='105' fill='white' font-size='12' font-weight='bold'%3E📊 Dashboard%3C/text%3E%3Crect x='210' y='85' width='160' height='32' fill='%23334155' rx='20'/%3E%3Ctext x='238' y='105' fill='%23cbd5e1' font-size='12'%3E🎸 Eventos%3C/text%3E%3Crect x='380' y='85' width='150' height='32' fill='%23334155' rx='20'/%3E%3Ctext x='406' y='105' fill='%23cbd5e1' font-size='12'%3E🎟️ Ingressos%3C/text%3E%3Crect x='540' y='85' width='160' height='32' fill='%23334155' rx='20'/%3E%3Ctext x='568' y='105' fill='%23cbd5e1' font-size='12'%3E💰 Financeiro%3C/text%3E%3Crect x='20' y='140' width='760' height='32' fill='%230f172a' rx='10'/%3E%3Ctext x='40' y='161' fill='%23818cf8' font-size='12' font-weight='bold'%3EÚltimas Vendas %26 Eventos Recentes%3C/text%3E%3Crect x='20' y='185' width='180' height='280' fill='%23111a2e' rx='12'/%3E%3Ctext x='40' y='210' fill='%23a5b4fc' font-size='13' font-weight='bold'%3E🎤 Top Bandas%3C/text%3E%3Ctext x='40' y='240' fill='%23e2e8f0' font-size='12'%3E1. Megadust%3C/text%3E%3Ctext x='40' y='265' fill='%23e2e8f0' font-size='12'%3E2. Iron Legacy%3C/text%3E%3Ctext x='40' y='290' fill='%23e2e8f0' font-size='12'%3E3. Lenda Sinfônica%3C/text%3E%3Ctext x='40' y='315' fill='%23e2e8f0' font-size='12'%3E4. Aurora Rock%3C/text%3E%3Cline x1='220' y1='185' x2='220' y2='465' stroke='%23233454' stroke-width='1'/%3E%3Crect x='235' y='185' width='535' height='280' fill='%230f172a' rx='10'/%3E%3Ctext x='255' y='210' fill='%23cbd5e6' font-size='12' font-weight='bold'%3EID%3C/text%3E%3Ctext x='305' y='210' fill='%23cbd5e6' font-size='12' font-weight='bold'%3EBanda%3C/text%3E%3Ctext x='400' y='210' fill='%23cbd5e6' font-size='12' font-weight='bold'%3ELocal%3C/text%3E%3Ctext x='500' y='210' fill='%23cbd5e6' font-size='12' font-weight='bold'%3ECidade%3C/text%3E%3Ctext x='600' y='210' fill='%23cbd5e6' font-size='12' font-weight='bold'%3EValor%3C/text%3E%3Ctext x='685' y='210' fill='%23cbd5e6' font-size='12' font-weight='bold'%3EData%3C/text%3E%3Cline x1='235' y1='218' x2='770' y2='218' stroke='%23233a5e' stroke-width='1.5'/%3E%3Ctext x='255' y='242' fill='%23f1f5f9' font-size='12'%3E1%3C/text%3E%3Ctext x='305' y='242' fill='%23e2e8f0' font-size='12'%3EMegadust%3C/text%3E%3Ctext x='400' y='242' fill='%23cbd5e6' font-size='11'%3EPlanbateiros%3C/text%3E%3Ctext x='500' y='242' fill='%23cbd5e6' font-size='11'%3EBairro%3C/text%3E%3Ctext x='600' y='242' fill='%234ade80' font-size='12' font-weight='bold'%3ER$ 1.200%3C/text%3E%3Ctext x='685' y='242' fill='%2394a3b8' font-size='11'%3E27/06/2024%3C/text%3E%3Ctext x='255' y='275' fill='%23f1f5f9' font-size='12'%3E2%3C/text%3E%3Ctext x='305' y='275' fill='%23e2e8f0' font-size='12'%3ELenda Sinf%3C/text%3E%3Ctext x='400' y='275' fill='%23cbd5e6' font-size='11'%3EMercado Central%3C/text%3E%3Ctext x='500' y='275' fill='%23cbd5e6' font-size='11'%3EInverno%3C/text%3E%3Ctext x='600' y='275' fill='%234ade80' font-size='12' font-weight='bold'%3ER$ 1.850%3C/text%3E%3Ctext x='685' y='275' fill='%2394a3b8' font-size='11'%3E28/06/2024%3C/text%3E%3Ctext x='255' y='308' fill='%23f1f5f9' font-size='12'%3E3%3C/text%3E%3Ctext x='305' y='308' fill='%23e2e8f0' font-size='12'%3EMegadust%3C/text%3E%3Ctext x='400' y='308' fill='%23cbd5e6' font-size='11'%3EAvenida Castelo%3C/text%3E%3Ctext x='500' y='308' fill='%23cbd5e6' font-size='11'%3EFortaleza%3C/text%3E%3Ctext x='600' y='308' fill='%234ade80' font-size='12' font-weight='bold'%3ER$ 2.500%3C/text%3E%3Ctext x='685' y='308' fill='%2394a3b8' font-size='11'%3E30/06/2024%3C/text%3E%3Ctext x='255' y='341' fill='%23f1f5f9' font-size='12'%3E4%3C/text%3E%3Ctext x='305' y='341' fill='%23e2e8f0' font-size='12'%3EAurora Rock%3C/text%3E%3Ctext x='400' y='341' fill='%23cbd5e6' font-size='11'%3ECoffee Eventos%3C/text%3E%3Ctext x='500' y='341' fill='%23cbd5e6' font-size='11'%3ERondinhos%3C/text%3E%3Ctext x='600' y='341' fill='%234ade80' font-size='12' font-weight='bold'%3ER$ 1.980%3C/text%3E%3Ctext x='685' y='341' fill='%2394a3b8' font-size='11'%3E29/06/2024%3C/text%3E%3Crect x='235' y='370' width='250' height='30' fill='%233b82f6' rx='8' opacity='0.2'/%3E%3Ctext x='255' y='390' fill='%2360a5fa' font-size='11' font-weight='bold'%3E📈 Faturamento total (Junho): R$ 52.430,00%3C/text%3E%3Crect x='520' y='370' width='150' height='30' fill='%231e293b' rx='8'/%3E%3Ctext x='540' y='390' fill='%2381e6d9' font-size='11'%3E🎟️ Ingressos Vendidos: 1.284%3C/text%3E%3C/svg%3E" 
-                         alt="Dashboard DaveTickets Pro - interface com vendas e eventos em tempo real" 
+            
+                    <img src="./telaappdesktop.png" alt="Dashboard DaveTickets Pro">                         alt="Dashboard DaveTickets Pro - interface com vendas e eventos em tempo real" 
                          style="width:100%; border-radius: 28px; box-shadow: 0 12px 24px -10px rgba(0,0,0,0.6);">
                     
-                    <!-- Sinal de sistema online que não atrapalha a visualização (posição fixa mas elegante) -->
+        
                     <div class="live-badge">
                         <span class="live-dot"></span>
                         <span>SISTEMA ONLINE • DADOS EM TEMPO REAL</span>
@@ -354,7 +345,6 @@
         </div>
     </main>
 
-    <!-- pequeno rodapé com status e credibilidade (opcional) -->
     <footer style="text-align: center; padding: 2rem 1rem 2rem; font-size: 0.75rem; color: #4b5563; border-top: 1px solid rgba(129,140,248,0.1); width:100%; background: #03071270; backdrop-filter: blur(8px); margin-top: 1rem;">
         <p>⚡ DaveTickets Pro v2.5 — Integração nativa PostgreSQL | Painel em tempo real para Windows e Linux</p>
     </footer>
