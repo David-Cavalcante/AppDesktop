@@ -1,0 +1,6 @@
+# Ignorar arquivos sensíveis e pesados
+.env
+__pycache__/
+dist/
+build/
+*.spec
