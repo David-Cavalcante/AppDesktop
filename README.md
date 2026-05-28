@@ -80,4 +80,4 @@ Desenvolvedor: David Cavalcante
 
 ## LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidcavalcante)
 
-## Baixe o app e verifique o projeto [projeto original](https://david-cavalcante.github.io/AppDesktop/)
+## Baixe o app e verifique [projeto original](https://david-cavalcante.github.io/AppDesktop/)
