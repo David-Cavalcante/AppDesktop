@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaveTickets Pro | Sistema de Gerenciamento de Eventos</title>
+    <title>DaveTickets Pro | Painel Administrativo</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -41,7 +41,6 @@
             padding: 60px 24px;
             display: flex;
             justify-content: center;
-            backdrop-filter: blur(2px);
         }
 
         .container {
@@ -63,12 +62,19 @@
             font-size: 4rem;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             background: linear-gradient(135deg, #c084fc, #818cf8, #60a5fa);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: -0.02em;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
         }
 
         .content > p {
@@ -208,18 +214,18 @@
             position: absolute;
             top: 18px;
             right: 24px;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(12px);
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 60px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-size: 0.75rem;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             color: white;
-            border: 1px solid rgba(74, 222, 128, 0.5);
+            border: 1px solid rgba(74, 222, 128, 0.6);
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             z-index: 5;
             pointer-events: none;
@@ -240,7 +246,6 @@
             100% { opacity: 1; transform: scale(1.2);}
         }
 
-
         @media (max-width: 1100px) {
             .container {
                 flex-direction: column;
@@ -256,19 +261,20 @@
             .buttons {
                 justify-content: center;
             }
-            .feature strong::before {
-                margin-right: 6px;
-            }
             .live-badge {
                 top: 12px;
                 right: 16px;
-                font-size: 0.7rem;
+                font-size: 0.65rem;
+                padding: 6px 14px;
             }
         }
 
         @media (max-width: 640px) {
             .content h1 {
                 font-size: 2.6rem;
+            }
+            .content h2 {
+                font-size: 1.4rem;
             }
             .btn {
                 width: 100%;
@@ -278,12 +284,8 @@
                 top: 8px;
                 right: 12px;
                 padding: 4px 12px;
+                font-size: 0.6rem;
             }
-        }
-
-        .preview-container img {
-            max-width: 100%;
-            vertical-align: middle;
         }
     </style>
 </head>
@@ -291,10 +293,12 @@
 
     <main class="hero">
         <div class="container">
-            
             <div class="content">
-                <h1>DaveTickets Pro</h1>
+                <h1>DAVE TICKETS</h1>
+                <h2>Painel Administrativo</h2>
+                
                 <p>Plataforma desktop desenvolvida em <strong style="color:#a5b4fc">Python</strong> para o gerenciamento inteligente de vendas de ingressos, shows e eventos em tempo real.</p>
+                
                 <p>Integração nativa com <strong style="color:#a5b4fc">PostgreSQL</strong> para controle total sobre bandas contratadas, clientes, cidades, locais e faturamento de vendas.</p>
                 
                 <div class="features">
@@ -328,12 +332,12 @@
                 </div>
             </div>
             
-       
             <div class="preview-container">
                 <div class="app-frame">
-            
-                    <img src="./telaappdesktop.png" alt="Dashboard DaveTickets Pro">            
-        
+                 
+                    <img src="./telaappdesktop.png"                         
+                        alt="Dashboard DaveTickets Pro - interface com vendas e eventos em tempo real">
+                    
                     <div class="live-badge">
                         <span class="live-dot"></span>
                         <span>SISTEMA ONLINE • DADOS EM TEMPO REAL</span>
