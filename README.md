@@ -79,3 +79,5 @@ vendas_ingressos: id_venda, id_show, id_cliente, quantidade, valor_total
 Desenvolvedor: David Cavalcante
 
 ## LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidcavalcante)
+
+## visite o [projeto original]([https://app.powerbi.com/view?r=eyJrIjoiNTgyYjYwNTgtZGI0YS00ZDQ1LTljYTYtYWJjNzk5ZjFhMDhkIiwidCI6IjM5YWFhMmI1LWIzOWQtNDdhZS1iY2I0LThhMzdiM2QzODYyMCJ9](https://david-cavalcante.github.io/AppDesktop/)).
