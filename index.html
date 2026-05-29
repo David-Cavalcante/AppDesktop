@@ -1,3 +1,4 @@
+```html id="m8f3cv"
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -27,7 +28,11 @@
             content: '';
             position: fixed;
             inset: 0;
-            background: radial-gradient(ellipse at 70% 30%, rgba(79, 70, 229, 0.15), transparent 60%);
+            background: radial-gradient(
+                ellipse at 70% 30%,
+                rgba(79, 70, 229, 0.15),
+                transparent 60%
+            );
             pointer-events: none;
         }
 
@@ -40,6 +45,7 @@
         .container {
             max-width: 1400px;
             width: 100%;
+
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -55,7 +61,14 @@
         .content h1 {
             font-size: 4rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #c084fc, #818cf8, #60a5fa);
+
+            background: linear-gradient(
+                135deg,
+                #c084fc,
+                #818cf8,
+                #60a5fa
+            );
+
             -webkit-background-clip: text;
             color: transparent;
         }
@@ -79,6 +92,7 @@
 
         .features {
             margin-top: 30px;
+
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -86,7 +100,9 @@
 
         .feature {
             background: rgba(15, 23, 42, 0.6);
+
             border: 1px solid rgba(129, 140, 248, 0.2);
+
             padding: 18px;
             border-radius: 18px;
         }
@@ -105,13 +121,24 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+
             padding: 14px 28px;
+
             border-radius: 999px;
-            background: linear-gradient(135deg, #6d28d9, #7c3aed);
+
+            background: linear-gradient(
+                135deg,
+                #6d28d9,
+                #7c3aed
+            );
+
             color: white;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+
+            box-shadow:
+                0 10px 25px rgba(124, 58, 237, 0.4);
+
             transition: 0.25s;
         }
 
@@ -133,11 +160,17 @@
             position: absolute;
             top: 15px;
             right: 15px;
+
             background: black;
+
             border: 1px solid #22c55e;
+
             padding: 8px 14px;
+
             border-radius: 999px;
+
             font-size: 12px;
+
             display: flex;
             align-items: center;
             gap: 8px;
@@ -146,7 +179,9 @@
         .dot {
             width: 8px;
             height: 8px;
+
             background: #22c55e;
+
             border-radius: 50%;
         }
 
@@ -155,10 +190,12 @@
             padding: 30px;
             color: #64748b;
             margin-top: 40px;
+
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         @media(max-width: 900px) {
+
             .container {
                 flex-direction: column;
                 text-align: center;
@@ -175,53 +212,96 @@
 <body>
 
     <div class="hero">
+
         <div class="container">
+
             <div class="content">
+
                 <h1>DAVE TICKETS</h1>
+
                 <h2>Painel Administrativo</h2>
 
-                <p>Sistema em <span class="highlight">Python</span> para gestão de ingressos, eventos e vendas em tempo real.</p>
-                <p>Integração com <span class="highlight">PostgreSQL</span> para controle completo de dados e relatórios.</p>
+                <p>
+                    Sistema em
+                    <span class="highlight">Python</span>
+                    para gestão de ingressos,
+                    eventos e vendas em tempo real.
+                </p>
+
+                <p>
+                    Integração com
+                    <span class="highlight">PostgreSQL</span>
+                    para controle completo de dados e relatórios.
+                </p>
 
                 <div class="features">
+
                     <div class="feature">
                         <strong>Dashboard em tempo real</strong>
                         Visualização dinâmica de vendas e eventos.
                     </div>
+
                     <div class="feature">
                         <strong>Banco PostgreSQL</strong>
                         Armazenamento seguro e escalável.
                     </div>
+
                     <div class="feature">
                         <strong>Interface moderna</strong>
                         Design focado em produtividade.
                     </div>
+
                     <div class="feature">
                         <strong>Gestão completa</strong>
                         Controle total do sistema.
                     </div>
+
                 </div>
 
                 <div class="downloads">
-                    <a href="./downloads/dave_ticket.zip" download="dave_ticket.zip">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+                    <!-- ZIP na MESMA pasta do index.html -->
+
+                    <a href="./dave_ticket.zip" download>
+
+                        <svg width="18"
+                             height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2">
+
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+
                             <polyline points="7 10 12 15 17 10"></polyline>
+
                             <line x1="12" y1="15" x2="12" y2="3"></line>
+
                         </svg>
+
                         Baixar para Windows
+
                     </a>
+
                 </div>
+
             </div>
 
             <div class="preview">
-                <img src="telaappdesktop.png" alt="Dashboard">
+
+                <img
+                    src="./telaappdesktop.png"
+                    alt="Dashboard">
+
                 <div class="live">
                     <div class="dot"></div>
                     SISTEMA ONLINE
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <footer>
@@ -229,4 +309,6 @@
     </footer>
 
 </body>
+
 </html>
+```
