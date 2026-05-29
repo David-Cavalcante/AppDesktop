@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -86,7 +87,7 @@
         }
 
         .features {
-            margin: 2rem 0 2rem 0;
+            margin: 2rem 0;
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -100,6 +101,8 @@
             padding: 1rem 1.5rem;
             border-radius: 20px;
             transition: all 0.2s;
+            color: #e2e8f0;
+            font-size: 0.95rem;
         }
 
         .feature:hover {
@@ -122,11 +125,6 @@
             content: "✦";
             color: #818cf8;
             font-weight: 800;
-        }
-
-        .feature {
-            color: #e2e8f0;
-            font-size: 0.95rem;
         }
 
         .buttons {
@@ -163,19 +161,6 @@
             box-shadow: 0 12px 24px rgba(79, 70, 229, 0.5);
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #f1f5f9;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-2px);
-            border-color: #818cf8;
-        }
-
         .preview-container {
             flex: 1.2;
             min-width: 280px;
@@ -192,7 +177,8 @@
             position: relative;
             background: #0f1119;
             border-radius: 32px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(129, 140, 248, 0.15);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.8),
+                        0 0 0 1px rgba(129, 140, 248, 0.15);
             transition: transform 0.3s ease;
             overflow: hidden;
         }
@@ -242,8 +228,15 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.5; transform: scale(0.8);}
-            100% { opacity: 1; transform: scale(1.2);}
+            0% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
         }
 
         @media (max-width: 1100px) {
@@ -251,21 +244,15 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .content > p, .features {
+
+            .content > p,
+            .features {
                 margin-left: auto;
                 margin-right: auto;
             }
-            .features {
-                align-items: stretch;
-            }
+
             .buttons {
                 justify-content: center;
-            }
-            .live-badge {
-                top: 12px;
-                right: 16px;
-                font-size: 0.65rem;
-                padding: 6px 14px;
             }
         }
 
@@ -273,83 +260,138 @@
             .content h1 {
                 font-size: 2.6rem;
             }
+
             .content h2 {
                 font-size: 1.4rem;
             }
+
             .btn {
                 width: 100%;
                 justify-content: center;
             }
-            .live-badge {
-                top: 8px;
-                right: 12px;
-                padding: 4px 12px;
-                font-size: 0.6rem;
-            }
         }
     </style>
 </head>
+
 <body>
 
     <main class="hero">
         <div class="container">
+
             <div class="content">
+
                 <h1>DAVE TICKETS</h1>
                 <h2>Painel Administrativo</h2>
-                
-                <p>Plataforma desktop desenvolvida em <strong style="color:#a5b4fc">Python</strong> para o gerenciamento inteligente de vendas de ingressos, shows e eventos em tempo real.</p>
-                
-                <p>Integração nativa com <strong style="color:#a5b4fc">PostgreSQL</strong> para controle total sobre bandas contratadas, clientes, cidades, locais e faturamento de vendas.</p>
-                
+
+                <p>
+                    Plataforma desktop desenvolvida em
+                    <strong style="color:#a5b4fc">Python</strong>
+                    para gerenciamento inteligente de vendas de ingressos,
+                    shows e eventos em tempo real.
+                </p>
+
+                <p>
+                    Integração nativa com
+                    <strong style="color:#a5b4fc">PostgreSQL</strong>
+                    para controle completo de bandas, clientes,
+                    cidades, locais e faturamento.
+                </p>
+
                 <div class="features">
+
                     <div class="feature">
                         <strong>Dashboard em tempo real</strong>
-                        Visualize vendas, clientes e shows instantaneamente com gráficos dinâmicos.
+                        Visualize vendas, clientes e shows instantaneamente
+                        com gráficos dinâmicos.
                     </div>
+
                     <div class="feature">
                         <strong>Integração PostgreSQL</strong>
-                        Dados armazenados com segurança, backups automáticos e alta performance.
+                        Dados seguros, backups automáticos
+                        e alta performance.
                     </div>
+
                     <div class="feature">
                         <strong>Interface moderna e fluida</strong>
-                        Design profissional focado em produtividade e usabilidade noturna.
+                        Design profissional com foco
+                        em produtividade e experiência noturna.
                     </div>
+
                     <div class="feature">
                         <strong>Gestão centralizada</strong>
-                        Controle de eventos, bandas, ingressos e relatórios de faturamento em um só lugar.
+                        Controle eventos, bandas,
+                        ingressos e relatórios em um único painel.
                     </div>
+
                 </div>
-                
+
                 <div class="buttons">
-                    <a href="#" class="btn btn-primary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+
+                    <a href="./DaveTicketsSetup.exe"
+                       download
+                       class="btn btn-primary">
+
+                        <svg width="18"
+                             height="18"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+
+                        </svg>
+
                         Baixar para Windows
+
                     </a>
-                    <a href="#" class="btn btn-secondary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        Demonstrativo online
-                    </a>
+
                 </div>
+
             </div>
-            
+
             <div class="preview-container">
+
                 <div class="app-frame">
-                 
-                    <img class="dashboard-img" 
-                         src="./telaappdesktop.png" 
+
+                    <img class="dashboard-img"
+                         src="./telaappdesktop.png"
                          alt="Dashboard DaveTickets Pro">
-                    
+
                     <div class="live-badge">
                         <span class="live-dot"></span>
                         <span>SISTEMA ONLINE • DADOS EM TEMPO REAL</span>
                     </div>
+
                 </div>
+
             </div>
+
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 2rem 1rem 2rem; font-size: 0.75rem; color: #4b5563; border-top: 1px solid rgba(129,140,248,0.1); width:100%; background: #03071270; backdrop-filter: blur(8px); margin-top: 1rem;">
-        <p>⚡ DaveTickets Pro v2.5 — Integração nativa PostgreSQL | Painel em tempo real para Windows e Linux</p>
+    <footer style="
+        text-align:center;
+        padding:2rem 1rem;
+        font-size:0.75rem;
+        color:#4b5563;
+        border-top:1px solid rgba(129,140,248,0.1);
+        width:100%;
+        background:#03071270;
+        backdrop-filter:blur(8px);
+        margin-top:1rem;
+    ">
+        <p>
+            ⚡ DaveTickets Pro v2.5 —
+            Integração PostgreSQL |
+            Painel em tempo real para Windows e Linux
+        </p>
     </footer>
+
 </body>
 </html>
+```
