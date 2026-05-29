@@ -2,395 +2,333 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaveTickets Pro | Painel Administrativo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+<title>DaveTickets Pro</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at 10% 20%, #0a0f1e, #030712);
-            color: #f8fafc;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 70% 30%, rgba(79, 70, 229, 0.15), transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .hero {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            padding: 60px 24px;
-            display: flex;
-            justify-content: center;
-        }
+body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:#050816;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
 
-        .container {
-            max-width: 1440px;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
+.hero{
+    width:100%;
+    padding:70px 40px;
+}
 
-        .content {
-            flex: 1.1;
-            min-width: 280px;
-        }
+.container{
+    max-width:1400px;
+    margin:auto;
 
-        .content h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #c084fc, #818cf8, #60a5fa);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.02em;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+}
 
-        .content h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #e2e8f0;
-        }
+.content{
+    flex:1;
+}
 
-        .content > p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #cbd5e6;
-            margin-bottom: 1rem;
-            max-width: 580px;
-        }
+.content h1{
+    font-size:5rem;
+    font-weight:800;
 
-        .features {
-            margin: 2rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-width: 600px;
-        }
+    background:linear-gradient(135deg,#a855f7,#818cf8);
 
-        .feature {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(129, 140, 248, 0.2);
-            padding: 1rem 1.5rem;
-            border-radius: 20px;
-            transition: all 0.2s;
-            color: #e2e8f0;
-            font-size: 0.95rem;
-        }
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 
-        .feature:hover {
-            border-color: rgba(129, 140, 248, 0.5);
-            background: rgba(30, 41, 59, 0.5);
-            transform: translateX(6px);
-        }
+    margin-bottom:10px;
+}
 
-        .feature strong {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #a5b4fc;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 6px;
-        }
+.content h2{
+    font-size:2rem;
+    margin-bottom:20px;
+    color:#e2e8f0;
+}
 
-        .feature strong::before {
-            content: "✦";
-            color: #818cf8;
-            font-weight: 800;
-        }
+.content p{
+    color:#cbd5e1;
+    font-size:1.15rem;
+    line-height:1.8;
+    margin-bottom:22px;
+    max-width:620px;
+}
 
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            margin-top: 2rem;
-        }
+.highlight{
+    color:#a78bfa;
+    font-weight:700;
+}
 
-        .btn {
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.2s ease;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-        }
+.features{
+    margin-top:30px;
 
-        .btn-primary {
-            background: linear-gradient(105deg, #4f46e5, #7c3aed);
-            color: white;
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
-        }
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            background: linear-gradient(105deg, #6366f1, #8b5cf6);
-            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.5);
-        }
+.feature{
+    background:rgba(15,23,42,.6);
 
-        .preview-container {
-            flex: 1.2;
-            min-width: 280px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+    border:1px solid rgba(129,140,248,.2);
 
-        .app-frame {
-            width: 100%;
-            max-width: 720px;
-            margin: 0 auto;
-            position: relative;
-            background: #0f1119;
-            border-radius: 32px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.8),
-                        0 0 0 1px rgba(129, 140, 248, 0.15);
-            transition: transform 0.3s ease;
-            overflow: hidden;
-        }
+    border-radius:22px;
 
-        .app-frame:hover {
-            transform: scale(1.01);
-            box-shadow: 0 30px 50px -18px black;
-        }
+    padding:22px;
 
-        .dashboard-img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 28px;
-            background: #0b0e17;
-        }
+    transition:.25s;
+}
 
-        .live-badge {
-            position: absolute;
-            top: 18px;
-            right: 24px;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px);
-            padding: 8px 18px;
-            border-radius: 60px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: white;
-            border: 1px solid rgba(74, 222, 128, 0.6);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            z-index: 5;
-            pointer-events: none;
-        }
+.feature:hover{
+    transform:translateX(6px);
 
-        .live-dot {
-            width: 9px;
-            height: 9px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 6px #22c55e;
-            animation: pulse 1.5s infinite;
-        }
+    border-color:#818cf8;
+}
 
-        @keyframes pulse {
-            0% {
-                opacity: 0.5;
-                transform: scale(0.8);
-            }
+.feature strong{
+    color:#a5b4fc;
+    display:block;
+    margin-bottom:8px;
+    font-size:1.05rem;
+}
 
-            100% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
+.download{
+    margin-top:40px;
+}
 
-        @media (max-width: 1100px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
+.download a{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
 
-            .content > p,
-            .features {
-                margin-left: auto;
-                margin-right: auto;
-            }
+    text-decoration:none;
 
-            .buttons {
-                justify-content: center;
-            }
-        }
+    background:linear-gradient(135deg,#6d28d9,#7c3aed);
 
-        @media (max-width: 640px) {
-            .content h1 {
-                font-size: 2.6rem;
-            }
+    color:white;
 
-            .content h2 {
-                font-size: 1.4rem;
-            }
+    padding:16px 34px;
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
+    border-radius:999px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+    box-shadow:0 10px 30px rgba(124,58,237,.45);
+}
+
+.download a:hover{
+    transform:translateY(-4px);
+}
+
+.preview{
+    flex:1;
+
+    position:relative;
+}
+
+.preview img{
+    width:100%;
+    border-radius:28px;
+
+    box-shadow:
+    0 30px 60px rgba(0,0,0,.65);
+}
+
+.live{
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    background:black;
+
+    border:1px solid #22c55e;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    box-shadow:0 0 12px #22c55e;
+}
+
+footer{
+    margin-top:50px;
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#64748b;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+@media(max-width:1000px){
+
+    .container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .content p{
+        margin:auto auto 20px auto;
+    }
+
+    .download{
+        display:flex;
+        justify-content:center;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <main class="hero">
-        <div class="container">
+<section class="hero">
 
-            <div class="content">
+<div class="container">
 
-                <h1>DAVE TICKETS</h1>
-                <h2>Painel Administrativo</h2>
+<div class="content">
 
-                <p>
-                    Plataforma desktop desenvolvida em
-                    <strong style="color:#a5b4fc">Python</strong>
-                    para gerenciamento inteligente de vendas de ingressos,
-                    shows e eventos em tempo real.
-                </p>
+<h1>DAVETICKETS</h1>
 
-                <p>
-                    Integração nativa com
-                    <strong style="color:#a5b4fc">PostgreSQL</strong>
-                    para controle completo de bandas, clientes,
-                    cidades, locais e faturamento.
-                </p>
+<h2>Painel Administrativo</h2>
 
-                <div class="features">
+<p>
+Plataforma desktop desenvolvida em
+<span class="highlight">Python</span>
+para gerenciamento inteligente de vendas
+de ingressos, shows e eventos em tempo real.
+</p>
 
-                    <div class="feature">
-                        <strong>Dashboard em tempo real</strong>
-                        Visualize vendas, clientes e shows instantaneamente
-                        com gráficos dinâmicos.
-                    </div>
+<p>
+Integração nativa com
+<span class="highlight">PostgreSQL</span>
+para controle completo de bandas,
+clientes, cidades, locais e faturamento.
+</p>
 
-                    <div class="feature">
-                        <strong>Integração PostgreSQL</strong>
-                        Dados seguros, backups automáticos
-                        e alta performance.
-                    </div>
+<div class="features">
 
-                    <div class="feature">
-                        <strong>Interface moderna e fluida</strong>
-                        Design profissional com foco
-                        em produtividade e experiência noturna.
-                    </div>
+<div class="feature">
+<strong>✦ Dashboard em tempo real</strong>
+Visualize vendas, clientes e shows instantaneamente com gráficos dinâmicos.
+</div>
 
-                    <div class="feature">
-                        <strong>Gestão centralizada</strong>
-                        Controle eventos, bandas,
-                        ingressos e relatórios em um único painel.
-                    </div>
+<div class="feature">
+<strong>✦ Integração PostgreSQL</strong>
+Dados armazenados com segurança, backups automáticos e alta performance.
+</div>
 
-                </div>
+<div class="feature">
+<strong>✦ Interface moderna e fluida</strong>
+Design profissional focado em produtividade e usabilidade noturna.
+</div>
 
-                <div class="buttons">
+<div class="feature">
+<strong>✦ Gestão centralizada</strong>
+Controle de eventos, bandas, ingressos e relatórios em um só lugar.
+</div>
 
-                    <a href="./DaveTicketsSetup.exe"
-                       download
-                       class="btn btn-primary">
+</div>
 
-                        <svg width="18"
-                             height="18"
-                             viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2"
-                             stroke-linecap="round"
-                             stroke-linejoin="round">
+<div class="download">
 
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
+<!-- BOTÃO FUNCIONANDO -->
 
-                        </svg>
+<a href="./downloads/dave_ticket.exe" download>
 
-                        Baixar para Windows
+<svg width="18"
+height="18"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="2">
 
-                    </a>
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
 
-                </div>
+<polyline points="7 10 12 15 17 10"></polyline>
 
-            </div>
+<line x1="12"
+y1="15"
+x2="12"
+y2="3"></line>
 
-            <div class="preview-container">
+</svg>
 
-                <div class="app-frame">
+Baixar para Windows
 
-                    <img class="dashboard-img"
-                         src="./telaappdesktop.png"
-                         alt="Dashboard DaveTickets Pro">
+</a>
 
-                    <div class="live-badge">
-                        <span class="live-dot"></span>
-                        <span>SISTEMA ONLINE • DADOS EM TEMPO REAL</span>
-                    </div>
+</div>
 
-                </div>
+</div>
 
-            </div>
+<div class="preview">
 
-        </div>
-    </main>
+<img src="./telaappdesktop.png">
 
-    <footer style="
-        text-align:center;
-        padding:2rem 1rem;
-        font-size:0.75rem;
-        color:#4b5563;
-        border-top:1px solid rgba(129,140,248,0.1);
-        width:100%;
-        background:#03071270;
-        backdrop-filter:blur(8px);
-        margin-top:1rem;
-    ">
-        <p>
-            ⚡ DaveTickets Pro v2.5 —
-            Integração PostgreSQL |
-            Painel em tempo real para Windows e Linux
-        </p>
-    </footer>
+<div class="live">
+
+<div class="dot"></div>
+
+SISTEMA ONLINE • DADOS EM TEMPO REAL
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+⚡ DaveTickets Pro v2.5 —
+Integração PostgreSQL |
+Painel em tempo real para Windows e Linux
+
+</footer>
 
 </body>
 </html>
